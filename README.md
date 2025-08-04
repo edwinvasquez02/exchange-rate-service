@@ -114,6 +114,17 @@ quarkus dev
 http://localhost:8080/api/v1/best-rate
 ```
 
+> **CURL:**
+```
+curl --location 'http://localhost:8080/api/v1/exchange/best-rate' \
+--header 'Content-Type: application/json' \
+--data '{
+    "sourceCurrency": "USD",
+    "targetCurrency": "EUR", 
+    "amount": 100.00
+}'
+```
+
 > **Request ejemplo:**
 ```json
 {
