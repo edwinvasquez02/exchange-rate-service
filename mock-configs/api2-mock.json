@@ -1,0 +1,18 @@
+[
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/xml-api/convert",
+      "headers": {
+        "Content-Type": ["application/xml"]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": ["application/xml"]
+      },
+      "body": "<?xml version=\"1.0\"?><Api2Response><result>0.86</result></Api2Response>"
+    }
+  }
+]
