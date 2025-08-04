@@ -76,7 +76,7 @@ Este servicio está diseñado con patrones de resiliencia para funcionar incluso
 
 ```bash
 # Clonar repositorio
-git clone <your-repo-url>
+git clone <https://github.com/edwinvasquez02/exchange-rate-service.git>
 cd exchange-rate-comparison-service
 
 # Levantar servicios mock con Docker Compose
