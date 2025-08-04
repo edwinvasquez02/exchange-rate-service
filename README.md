@@ -79,8 +79,6 @@ Este servicio está diseñado con patrones de resiliencia para funcionar incluso
 git clone <https://github.com/edwinvasquez02/exchange-rate-service.git>
 cd exchange-rate-comparison-service
 
-# Levantar servicios mock con Docker Compose
-docker-compose up --build
 
 # En otra terminal, compilar y empaquetar
 mvn clean package
@@ -88,8 +86,15 @@ mvn clean package
 # O para instalar dependencias
 mvn clean install
 
+# Levantar servicios mock con Docker Compose
+docker-compose up --build
+
 # Ejecutar en modo desarrollo
 mvn quarkus:dev
+
+# O también utilziar
+quarkus dev
+
 ```
 
 ### Sin Maven instalado
