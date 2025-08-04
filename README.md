@@ -111,7 +111,7 @@ quarkus dev
 
 > **URL:**
 ```
-http://localhost:8080/api/v1/best-rate
+http://localhost:8080/api/v1/exchange/best-rate
 ```
 
 > **CURL:**
