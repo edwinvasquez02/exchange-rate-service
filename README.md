@@ -6,27 +6,6 @@ Este proyecto proporciona un microservicio para comparar tasas de cambio de múl
 
 Este servicio está diseñado con patrones de resiliencia para funcionar incluso si una o más APIs no están disponibles, garantizando siempre la mejor experiencia para el usuario final.
 
-## ✨ Características Principales
-
-- **Integración Multi-Proveedor**: Se conecta a 3 APIs diferentes de tasas de cambio con formatos de respuesta distintos:
-  - **API1**: JSON simple
-  - **API2**: XML
-  - **API3**: JSON anidado
-- **Arquitectura Resiliente**:
-  - Circuit breakers
-  - Reintentos automáticos
-  - Manejo de timeouts
-  - Mecanismos de fallback
-- **Optimizado para Rendimiento**:
-  - Llamadas paralelas a APIs
-  - Programación reactiva
-  - Baja huella de memoria
-- **Listo para Producción**:
-  - Health checks
-  - Métricas
-  - Soporte para contenedores
-  - Integración de seguridad
-
 ## 🏗️ Arquitectura
 
 ### Proveedores de API
