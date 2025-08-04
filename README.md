@@ -204,15 +204,6 @@ mvn test
 mvn clean verify
 ```
 
-### Ver Reporte de Cobertura
-
-El informe de cobertura estará disponible en:
-```
-target/site/jacoco/index.html
-```
-
-**Objetivo de Cobertura**: >80% de líneas cubiertas
-
 ## 📦 Empaquetado y Despliegue
 
 ### Aplicación JAR
@@ -272,24 +263,6 @@ docker-compose up mock-api1 mock-api2 mock-api3
 
 ## ⚙️ Configuración
 
-### Fault Tolerance
-
-```properties
-# Timeouts
-api1.timeout=2s
-api2.timeout=3s  
-api3.timeout=2s
-
-# Reintentos
-api1.retry.maxRetries=2
-api2.retry.maxRetries=3
-api3.retry.maxRetries=2
-
-# Circuit Breaker (API1)
-api1.circuitBreaker.requestVolumeThreshold=4
-api1.circuitBreaker.failureRatio=0.5
-```
-
 ### Logging
 
 ```properties
@@ -299,17 +272,6 @@ quarkus.log.category."com.currency".level=INFO
 
 # Formato de console
 quarkus.log.console.format=%d{dd/MM/yyyy HH:mm:ss} %-5p [%c{1}] %s%e%n
-```
-
-## 🔒 Seguridad
-
-El servicio incluye configuración para integración con Keycloak/OIDC:
-
-```properties
-# OIDC Configuration (opcional)
-quarkus.oidc.client-id=exchange-rate-service
-quarkus.oidc.credentials.secret=${OIDC_SECRET}
-quarkus.oidc.auth-server-url=${OIDC_SERVER_URL}
 ```
 
 ## 🛠️ Desarrollo
@@ -334,13 +296,6 @@ Recomendado usar:
 - Eclipse con Quarkus Tools
 
 ## 📊 Monitoreo y Observabilidad
-
-### Métricas Disponibles
-
-- Tiempo de respuesta por proveedor
-- Tasa de éxito/fallo por API
-- Contadores de circuit breaker
-- Métricas JVM y sistema
 
 ### Health Checks
 
@@ -378,30 +333,6 @@ docker-compose logs -f exchange-rate-service
 # Filtrar logs por nivel
 grep "ERROR" logs/application.log
 ```
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear rama feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear Pull Request
-
-### Estándares de Código
-
-- Seguir convenciones de Java
-- Escribir pruebas unitarias
-- Mantener cobertura >80%
-- Documentar APIs con OpenAPI
-
-## 📚 Guías Relacionadas
-
-- [RESTEasy Reactive](https://quarkus.io/guides/resteasy-reactive): Implementación de Jakarta REST
-- [SmallRye Mutiny](https://quarkus.io/guides/mutiny-primer): Programación reactiva en Java
-- [SmallRye Health](https://quarkus.io/guides/smallrye-health): Monitoreo de salud del servicio
-- [SmallRye OpenAPI](https://quarkus.io/guides/openapi-swaggerui): Documentación de APIs REST
-- [Jacoco Code Coverage](https://quarkus.io/guides/tests-with-coverage): Cobertura de código
-- [MicroProfile Fault Tolerance](https://quarkus.io/guides/microprofile-fault-tolerance): Tolerancia a fallos
 
 ## 👨‍💻 Autor
 
