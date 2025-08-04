@@ -1,0 +1,21 @@
+[
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/v2/exchange",
+      "headers": {
+        "Content-Type": ["application/json"]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {
+        "statusCode": 200,
+        "message": "success",
+        "data": {
+          "total": 0.87
+        }
+      }
+    }
+  }
+]
