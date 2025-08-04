@@ -1,0 +1,60 @@
+services:
+  # Mock API1 - JSON Simple
+  mock-api1:
+    image: mockserver/mockserver:latest
+    ports:
+      - "8081:1080"
+    environment:
+      - MOCKSERVER_INITIALIZATION_JSON_PATH=/config/api1-mock.json
+    volumes:
+      - ./mock-configs:/config
+    networks:
+      - exchange-network
+
+  # Mock API2 - XML
+  mock-api2:
+    image: mockserver/mockserver:latest
+    ports:
+      - "8082:1080" 
+    environment:
+      - MOCKSERVER_INITIALIZATION_JSON_PATH=/config/api2-mock.json
+    volumes:
+      - ./mock-configs:/config
+    networks:
+      - exchange-network
+
+  # Mock API3 - JSON Anidado
+  mock-api3:
+    image: mockserver/mockserver:latest
+    ports:
+      - "8083:1080"
+    environment:
+      - MOCKSERVER_INITIALIZATION_JSON_PATH=/config/api3-mock.json
+    volumes:
+      - ./mock-configs:/config
+    networks:
+      - exchange-network
+
+  # Exchange Rate Service Principal
+  exchange-rate-service:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+    environment:
+      - API1_URL=http://mock-api1:1080/v1
+      - API2_URL=http://mock-api2:1080
+      - API3_URL=http://mock-api3:1080/v2
+      - QUARKUS_OIDC_ENABLED=false
+      - QUARKUS_KEYCLOAK_POLICY_ENFORCER_ENABLE=false
+    depends_on:
+      - mock-api1
+      - mock-api2
+      - mock-api3
+    networks:
+      - exchange-network
+
+networks:
+  exchange-network:
+    driver: bridge

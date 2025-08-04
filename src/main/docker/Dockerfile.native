@@ -1,0 +1,41 @@
+####
+# This Dockerfile is used in order to build a container that runs the Quarkus application in native (no JVM) mode.
+#
+# Before building the container image run:
+#
+# ./mvnw package -Dnative
+#
+# Then, build the image with:
+#
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/exchange-rate-service  .
+#
+# Then run the container using:
+#
+# docker run -i --rm -p 8080:8080 quarkus/exchange-rate-service
+
+#Environment variables for Exchange Rate Service:
+# - API1_URL: URL for API1 provider (default: http://localhost:8081)
+# - API2_URL: URL for API2 provider (default: http://localhost:8082)
+# - API3_URL: URL for API3 provider (default: http://localhost:8083)
+#
+# Example with environment variables:
+# docker run -i --rm -p 8080:8080 \
+#   -e API1_URL=http://api1-provider:8081 \
+#   -e API2_URL=http://api2-provider:8082 \
+#   -e API3_URL=http://api3-provider:8083 \
+#   quarkus/exchange-rate-service
+#
+###
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10
+
+WORKDIR /work/
+RUN chown 1001 /work \
+    && chmod "g+rwX" /work \
+    && chown 1001:root /work
+
+COPY --chown=1001:root target/*-runner /work/application
+
+EXPOSE 8080
+USER 1001
+
+ENTRYPOINT ["./application", "-Dquarkus.http.host=0.0.0.0"]
