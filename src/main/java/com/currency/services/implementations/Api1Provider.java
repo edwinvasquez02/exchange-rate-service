@@ -18,7 +18,6 @@ import com.currency.services.contracts.IExchangeProvider;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 
-//@RegisterRestClient(configKey = "api1-client")
 @ApplicationScoped
 public class Api1Provider implements IExchangeProvider {
 
