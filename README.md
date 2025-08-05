@@ -152,40 +152,6 @@ curl --location 'http://localhost:8080/api/v1/exchange/best-rate' \
     },
     "body": null
 }
-```
-
-## 🏥 Endpoints de Salud y Monitoreo
-
-### Health Check
-
-> **URL Liveness**
-```
-http://localhost:8080/api/q/health/live
-```
-
-> **URL Readiness**
-```
-http://localhost:8080/api/q/health/ready
-```
-
-### Métricas
-
-> **URL Métricas Prometheus**
-```
-http://localhost:8080/q/metrics
-```
-
-### Documentación
-
-> **URL OpenAPI**
-```
-http://localhost:8080/api/q/openapi?format=json
-```
-
-> **URL Swagger UI**
-```
-http://localhost:8080/api/q/swagger-ui
-```
 
 ## 🧪 Pruebas y Cobertura
 
@@ -290,34 +256,6 @@ Recomendado usar:
 - VS Code con extensión Quarkus
 - Eclipse con Quarkus Tools
 
-## 📊 Monitoreo y Observabilidad
-
-### Health Checks
-
-- **Liveness**: Verifica si la aplicación está corriendo
-- **Readiness**: Verifica si la aplicación puede recibir tráfico
-- **Custom**: Verifica conectividad con APIs externas
-
-## 🐛 Troubleshooting
-
-### Problemas Comunes
-
-1. **APIs mock no responden**:
-   ```bash
-   # Verificar estado de contenedores
-   docker-compose ps
-   
-   # Ver logs de contenedores
-   docker-compose logs mock-api1
-   ```
-
-2. **Error de JAXB marshalling**:
-   - Verificar que las clases DTO tengan `@XmlRootElement`
-   - Revisar logs para detalles del error XML
-
-3. **Circuit breaker abierto**:
-   - Verificar métricas en `/q/metrics`
-   - Esperar tiempo de recovery o reiniciar aplicación
 
 ### Logs Útiles
 
