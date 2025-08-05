@@ -269,7 +269,7 @@ grep "ERROR" logs/application.log
 
 ## 👨‍💻 Autor
 
-**Edwin Enrique Vasquez Cruz** - *Desarrollador* - vasqeuzedwin954@ejemplo.com
+**Edwin Enrique Vasquez Cruz** - *Desarrollador* - vasqeuzedwin954@gmail.com
 
 ## 📄 Licencia
 
